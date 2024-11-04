@@ -1,181 +1,254 @@
-/* Couleurs principales */
+/* Couleurs et effets personnalisés */
 :root {
-  --primary-color: #2C3E50;
-  --secondary-color: #3498DB;
-  --accent-color: #E67E22;
-  --background-color: #ECF0F1;
-  --text-color: #34495E;
+  --text-color: #fff;
+  --background-color: #cd5905; /* Couleur de fond */
+  --primary-color: #f79021;    /* Couleur principale pour les en-têtes et boutons */
+  --secondary-color: #302b18;  /* Couleur secondaire pour les sections sombres */
+  --accent-color: #ffd966;     /* Couleur accentuée pour les icônes et liens */
+  --hover-color: #e05a00;      /* Couleur de survol pour les boutons et liens */
+  --h1-font: 4.5rem;           /* Taille des titres h1 */
 }
 
-/* Corps de page */
-body {
-  font-family: Arial, sans-serif;
-  color: var(--text-color);
-  background-color: var(--background-color);
+/* Styles généraux */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+}
+
+body {
+  background-color: var(--background-color);
   line-height: 1.6;
 }
 
 /* En-tête */
 header {
-  background: var(--primary-color);
-  color: var(--background-color);
+  background: var(--secondary-color);
   padding: 1rem 0;
+  text-align: center;
 }
 
 header h1 {
-  text-align: center;
-  font-size: 2rem;
+  font-size: var(--h1-font);
+  color: var(--primary-color);
 }
 
-nav ul {
+header nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 
-nav ul li a {
-  color: var(--background-color);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav ul li a:hover {
+header nav a {
   color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s;
 }
 
-/* Bouton principal */
+header nav a:hover {
+  color: var(--hover-color);
+}
+
+/* Section héro */
+.hero {
+  background: var(--primary-color);
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
 .btn-primary {
-  display: inline-block;
   background-color: var(--secondary-color);
   color: #fff;
   padding: 0.75rem 1.5rem;
+  border: none;
   border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
+  text-transform: uppercase;
   transition: background-color 0.3s;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-color);
+  background-color: var(--hover-color);
 }
 
-/* Section "hero" */
-.hero {
-  background: var(--secondary-color);
-  color: white;
+/* Section des services et événements */
+.services {
   padding: 3rem 0;
   text-align: center;
 }
 
-.hero p {
-  max-width: 600px;
-  margin: 0.5rem auto;
-  font-size: 1.2rem;
-}
-
-/* Section des services */
-.services {
-  padding: 2rem 0;
+.services h3 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
 }
 
 .service {
-  background: #fff;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--accent-color);
+  box-shadow: var(--primary-color) 0px 2px 30px;
   padding: 2rem;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   transition: transform 0.3s;
+  text-align: center;
 }
 
 .service:hover {
-  transform: translateY(-5px);
+  transform: scale(1.05);
+  box-shadow: var(--primary-color) 0px 2px 30px;
 }
 
-.service i {
-  font-size: 2rem;
+.service .icon {
+  font-size: 2.5rem;
   color: var(--accent-color);
 }
 
-/* Section témoignages */
+.service h4 {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  margin: 1rem 0;
+}
+
+/* Section des témoignages */
 .testimonials {
-  background: var(--primary-color);
-  color: var(--background-color);
-  padding: 2rem 0;
+  background-color: var(--secondary-color);
+  padding: 3rem 0;
+  color: var(--text-color);
   text-align: center;
+}
+
+.testimonials h3 {
+  color: var(--accent-color);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
 }
 
 .testimonial-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 
 blockquote {
-  background: #fff;
-  color: var(--text-color);
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--primary-color);
+  padding: 1.5rem;
+  border-left: 5px solid var(--accent-color);
+  font-style: italic;
+  text-align: left;
 }
 
-/* Pied de page */
-footer {
-  background: var(--primary-color);
-  color: var(--background-color);
+/* Section de l'équipe (à propos) */
+.team {
+  padding: 3rem 0;
   text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
 }
-/* Styles pour le formulaire de contact */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--primary-color);
+  box-shadow: var(--primary-color) 0px 2px 30px;
+}
+
+.team-member h4 {
+  margin-top: 1rem;
+  color: var(--accent-color);
+}
+
+/* Formulaire de contact */
+.contact {
+  padding: 3rem 0;
+  text-align: center;
+}
+
 .contact-form {
   max-width: 600px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: #ECF0F1;
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--primary-color) 0px 2px 30px;
 }
 
 .contact-form label {
-  font-weight: bold;
-  color: #2C3E50;
-  margin-top: 1rem;
   display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
-.contact-form input,
-.contact-form textarea {
+.contact-form input, .contact-form textarea {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
+  padding: 0.75rem;
   margin-bottom: 1rem;
-  border: 1px solid #BDC3C7;
-  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
 }
 
 .contact-form button {
   width: 100%;
+  background-color: var(--primary-color);
+  color: #000000;
+  font-weight:bold;
   padding: 0.75rem;
-  background-color: #3498DB;
-  color: #ECF0F1;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   font-size: 1rem;
-  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: var(--primary-color) 0px 2px 30px;
 }
 
 .contact-form button:hover {
-  background-color: #2C3E50;
+  background-color: var(--hover-color);
+}
+
+/* Pied de page */
+footer {
+  background: var(--secondary-color);
+  text-align: center;
+  padding: 1rem;
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+/* Adaptation pour petits écrans */
+@media (max-width: 768px) {
+  .service-grid, .team-grid, .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  header nav ul {
+    flex-direction: column;
+  }
 }
